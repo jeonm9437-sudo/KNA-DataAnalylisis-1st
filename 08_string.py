@@ -123,28 +123,96 @@ print(word[:])  # print(word[0:6])과 동일한 동작
 # 슬라이싱 - 음수 인덱스 사용
 print(word[-3:])  # HON
 # 음수 인덱스 작성 시 그냥 그 인덱스부터 정방향으로 출력함
-print(word[:-1]) #PYTHON
+print(word[:-1])  # PYTHON
 # 처음부터 -1(5)를 제외한 구간을 뽑아냄
 # 역순 아님 주의
 # 음수 인덱스 사용 시 컴퓨터가 정수 인덱스 찾아 치환해서 동작
 
 # step으로 건너뛰기
-print(word[0:6:2]) # PTO
+print(word[0:6:2])  # PTO
 # PYTHON에서 첫 번째 글자는 명시했으니 거기서부터 출력
 # step이 2이기 때문에 Y 뛰고, T(두번째 점프)출력
 # H 뛰고, O(두번째 점프) 출력
 # N 뛰고 끝
 # 두 글자를 뛰는게 아니라 두 "번" 뛰는 것 (뛴 그 자리 글자를 출력한다)
 
-print(word[0:6:1]) # PYTHON
+print(word[0:6:1])  # PYTHON
 
 # start와 end를 생략하고 step만 입력
-print(word[::2]) # PTO 
+print(word[::2])  # PTO
 # word 변수의 모든 글자를 두 칸씩 뛰면서 출력
 
 # 순서 뒤집기
-print(word[::-1]) # NOHTYP
+print(word[::-1])  # NOHTYP
 # step은 인덱스가 아니고, 음수 입력 시 순서를 뒤집음
 
 # 슬라이싱은 범위를 벗어나도 오류가 발생하지 않음
-print("범위를 벗어난 슬라이싱", word[0:100]) # PYTHON을 정상 출력
+print("범위를 벗어난 슬라이싱", word[0:100])  # PYTHON을 정상 출력
+
+# ===============================
+# len() - 문자열의 길이 반환
+# len(문자열)
+
+print("=== len() 활용 ===")
+
+print(len("Hello world!"))  # 12 (공백도 모두 글자 취급)
+print(len(""))  # 0 (빈 문자열은 0 출력)
+
+var = "여러분~! 한 시간만 더 하면 됩니다! 조금만 더 힘을 내주세요!"
+print(len(var))  # 변수에 담긴 문자열의 길이 출력도 가능
+
+
+print(len("이것도") - len("가능할까?"))
+# len()은 int를 반환하기 때문에 연산 가능
+
+print("abc 변수의 길이:", len(abc), " / 마지막 인덱스 번호:", len(abc) - 1)
+
+# 음수 인덱스를 사용하지 않고 마지막 인덱스 문자를 뽑고 싶을 때
+print(abc[len(abc) - 1])
+
+print("=== 실습 ===")
+a = "01012345678"
+print(len(a))
+
+
+# =====================
+print("=== in 활용 ===")
+
+
+# in - 특정 문자가 문자열에 포함되었는지 여부 확인
+# "여부"를 확인하기 때문에 True 또는 False (bool)으로 결과 반환
+# 찾을문자열 in 문자열
+print("고장" in "설비 고장 발생")  # True
+print("정상" in "설비 고장 발생")  # False
+print("설비에서 고장" in "설비 고장 발생")  # False
+print("설비에서 고장" in "설비에서 고장이 났습니다.")  # True
+
+# not in - in의 정반대 동작
+print("고장" not in "설비 고장 발생")  # False
+print("정상" not in "설비 고장 발생")  # True
+print("설비에서 고장" not in "설비 고장 발생")  # True
+print("설비에서 고장" not in "설비에서 고장이 났습니다.")  # False
+
+print(" " in "설비 고장 발생")  # True
+# 따옴표로 감싼 공백(스페이스바)는 정말 "한 글자"로 취급
+
+# ====================
+print("=== count() ===")
+
+# .count() - 문자열에 특정 글자의 수(int)를 반환
+# 문자열.count("찾을 글자")
+print("banana".count("a"))  # 3
+print("010-1234-1234".count("-"))  # 2
+print("layla@spreatics.com".count("@"))  # 1
+
+print("1,2,3,4".count(","))
+
+# =====================
+print("=== find() ===")
+# 전달받은 글자가 "첫 번째"로 나오는 위치 인덱스 반환
+# 찾는 글자가 없다면 -1을 반환
+
+email = "hong@company.com"
+at = email.find("@")  # @ 위치의 인덱스인 4가 할당
+user_id = email[:at]  # hong 이라는 사용자의 아이디만 추출
+print(user_id) # hong
