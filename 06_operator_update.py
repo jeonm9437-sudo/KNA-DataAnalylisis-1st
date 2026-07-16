@@ -1,0 +1,124 @@
+# 산술연산자
+# + - * / //(몫) %(나머지) **(거듭제곱)
+print(3 + 5)  # 8
+print(10 - 4)  # 6
+print(4 * 5)  # 20
+print(20 / 4)  # 5.0 나눗셈 결과는 항상 float
+print(7 // 3)  # 2 (나눗셈 결과의 몫)
+
+# 7개의 음료수를 3봉투에 나눠담으면, 2봉투와 1개의 음료수가 나옴
+print(7 % 3)  # 1 (나눗셈 결과의 나머지)
+print(2**5)  # 32 (2의 5제곱)
+
+
+# =================
+# 연산 우선순위와 우선순위 지정
+# **(거듭제곱) > *(곱하기) /(나누기) //(몫) %(나머지) > +(더하기) -(빼기)
+
+
+print(2 + 8 * 3)  # 8 * 3 연산 후 그 결과를 2와 더함
+print((2 + 8) * 3)  # 괄호 안의 연산을 먼저한 뒤 곱하기 계산
+
+
+# ==================
+# 복합연산자
+
+result = 3 * 5
+print(result)  # 15
+# += : 기존 값에서 오른쪽 값을 더한 뒤 재할당
+# -= : 기존 값에서 오른쪽 값을 뺀 뒤 재할당
+# *= : 기존 값에서 오른쪽 값을 곱한 뒤 재할당
+# /= : 기존 값에서 오른쪽 값을 나눈 뒤 재할당
+
+result += 10  # 25
+print(result)
+result -= 5  # 20
+print(result)
+result *= 3  # 60
+print(result)
+result /= 2  # 30.0
+print(result)
+
+# ================
+# 문자열 연산
+print("안녕" + "하세요")  # 안녕하세요
+
+# 만약 "안녕"과 "하세요"사이에 공백을 1개 넣고싶다면
+# 방법 1) , 사용
+print("안녕", "하세요")
+# 방법 2) 안녕 뒤에 공백 추가
+print("안녕 " + "하세요")
+# 방법 3) 공백만 있는 문자열 더하기
+print("안녕" + " " + "하세요")
+
+# 문자열 곱하기
+print("안녕" * 5)
+
+# 문자열에 연산자를 사용할 경우 모두 이어져서 나온다
+
+# ====================
+print("=== 비교 연산자 ===")
+# <(미만), >(초과), <=(이하), >=(이상), ==(같다), !=(다르다)
+# 비교 결과는 무조건 True or False (bool)
+
+print(7 < 16)  # True
+print(7 > 16)  # False
+print(7 <= 16)  # True
+print(7 >= 16)  # True
+print(7 == 16)  # True
+print(7 != 7)  # False
+
+# 비교 연산자는 문자열 비교도 가능
+print("hello" == "hello")  # True
+
+# True# 비교 연산자를 이용해 문자열을 비교할 때 주의사항
+
+# 1. 대소문자 구분
+print("정상" + "정상")
+print("hello" == "Hello")  # False
+
+
+# 2. 공백이 있어도 다르다고 판단
+print("정상" == "정상")  # False
+
+# 부정연산자 != (not)
+# 두 값이 동일한데 !로 인해서 값이 반대로 출력
+print("hello" != "hello")  # False
+print("hello" != "hello ")  # True
+print("hello" != "Hello")  # True
+
+# 변수에 문자열을 할당하고, 변수로 문자열 비교
+hello = "hi"
+print(hello == "hi")
+hi = "안녕"
+hello = hi  # print(hello) > 안녕
+print("=== 변수 hello(안녕)와 변수 hi(안녕) 비교 ===")
+print(hello == "hi")  # True
+# 위 비교에서 hello는 따옴표로 감싸지지 않아서 "변수"로 취급
+# 만약 hellofmf "hello"와 같이 따옴표로 감싸면
+# string으로 인식해서 변수 취급을 하지 않는다
+# ex) "hello"와 "hi"를 비교하는 것
+
+# 질문 1) hello 변수에 할당하는 값을 따옴표로 감싸지 않고 비교
+# print("=== 질문 1) hello 변수에 할당하는 값을 따옴표로 감싸지 않고 비교 ===")
+# hello = hi
+# print(hello == hi)  # NameError(선언하지 않은 이름 호출했을 때)
+# hi는 따옴표에 감싸져있지 않기 때문에 변수로 취급됨
+# 그런데 우리는 hi 변수를 선언한 적이 없기 때문에 에러
+
+# 질문 1) 해결방법
+# print("=== 질문 1) 해결 방법 ===")
+hi = "안녕"  # hello 변수에 hi 변수를 할당하기 전 hi 변수 선언
+hello = hi  # print(hello) > 안녕
+print("=== 변수 hello(안녕)와 변수 hi(안녕) 비교 ===")
+print(hello == hi)  # True
+
+
+# 변수로 비교연산자 사용
+num1 = 123
+num2 = 456
+
+print(num1 >= num2)  # False
+# print(num1 >= "num2") # TypeERror
+# TypeError : '>=' not supported instances of 'int' and 'str'
+
