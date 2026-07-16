@@ -122,3 +122,25 @@ print(num1 >= num2)  # False
 # print(num1 >= "num2") # TypeERror
 # TypeError : '>=' not supported instances of 'int' and 'str'
 
+# =========================
+
+# and / or / not - 논리연산자
+# and : 둘 다 True여야 True를 반환
+print(5 == 5 and 7 == 7)  # True
+# and는 첫 번째 조건이 False라면 뒤에 조건은 확인 안함
+print(5 == 7 and 7 == 7)  # False + True = False
+print(5 == 5 and 7 != 7)  # True + False = False
+# 위 코드는 가능하다면 7 != 7 and 5 == 5 순서로 작성
+
+# or : 하나라도 True라면 True 반환
+print(5 == 5 or 7 == 7)  # True + True = True
+print(5 == 7 or 7 == 7)  # False + True = True
+# or는 첫 번째 조건이 True라면 뒤에 조건은 확인 안함
+print(5 == 5 or 7 != 7)  # True + False = True
+
+# not : 값을 반대로 뒤집음
+print(not True)  # False
+print(not 5 == 5)  # False
+# 5 == 5를 연산하여 True를 반환
+# not True로 동작해서 True를 뒤집어 False를 반환
+# 반환받은 False라는 값을 print가 터미널로 출력
