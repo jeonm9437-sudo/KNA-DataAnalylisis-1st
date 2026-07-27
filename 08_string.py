@@ -476,3 +476,158 @@ print(raw.strip().lower())  # "normal"
 str10 = "     Warning    "
 print("[" + str10.lower() + "]")
 print("[" + str10.lower().strip() + "]")
+
+# strip() 메서드에 인자로 들어가는 문자열은 완전히 동일하지 않아도 가능
+
+str8 = "aaab 이렇게? cd"
+print(str8.strip("abcd"))  # " 이렇게?"
+print(str8.strip("abcd "))  # "이렇게?"
+print(str8.strip("bc"))  # "aaab 이렇게? cd"
+print(str8.strip("ab"))  # " 이렇게? cd"
+
+# GPT한테 물어볼때
+# 지금 출력 결과는 " 이렇게? " 이렇게 나오고 있어
+# 내가 생각했을 때 ==처럼 정확하게 "abcd" 순서가 아니면
+# strip이 안될 줄 알았는데 실행 결과를 보니 순서랑 상관업이
+# 인자로 전달한 문자열에 해당하는 글자가 확인하는 문자열 양 끝에
+# 하나라도 있으면 동작하는 것 같아.
+# 내가 이해한게 맞아?
+# 그렇다면 왜 이렇게 동작하는 거야?
+
+# =====================
+print("=== replace() ===")
+
+# 특정 문자열을 제거하거나 치환할 때 사용
+# .replace("바꾸고싶은문자열", "바꿀문자열")
+# 제거할 때는 인자의 두 번째를 ""(빈문자열)로 작성
+print("정 상 가 동".replace(" ", ""))  # 정상가동 (중간 공백 제거)
+print("    정    상 가 동".replace(" ", ""))  # 정상가동 (모든 공백 제거)
+print(
+    "    정    상 가 동".replace("  ", "")
+)  # 정상 가 동 (공백이 2칸 붙어있는 경우만 제거)
+
+# 글자 치환
+print("고장".replace("고장", "fault"))  # fault
+print("고장".replace("고", "fault"))  # fault장
+
+# 단어 치환
+str9 = "설비 정상 가동"
+print(str9.replace("정상", "점검"))  # "설비 점검 가동"
+
+# replace() 체이닝
+num = "     010-1234-1234   "
+num = num.replace(" ", "").replace("-", "")  # 01012341234
+
+# ===========================
+print("=== spllit() ===")
+# 문자열 자르기
+# 결과는 대괄호에 감싸진 "리스트" 자료형
+# 리스트는 순서가 있기 때문에 왼쪽에서부터 0으로 시작하는 인덱스가 자동 생성
+
+drinkgs = "에스프레소 아메리카노 카페라테"
+print(drinkgs.split())  # 인자를 보내지 않음
+# ['에스프레소', '아메리카노', '카페라테']
+# "띄어쓰기"를 기준으로 나뉘어진 세 개의 문자열을 대괄호에 감싸서 반환(출력)
+
+# 구분자를 특정하고 싶은 경우
+fruits = "딸기,거봉,키위,사쿠란보"
+print(fruits.split(","))  # 문자열 콤마를 기준으로 분할
+# ['딸기', '거봉', '키위', '사쿠란보']
+
+fruits2 = "딸기, 거봉, 키위, 사쿠란보"
+print(fruits2.split(","))  # 문자열 콤마를 기준으로 분할
+# ['딸기', ' 거봉', ' 키위', ' 사쿠란보'] > 공백 그대로 유지
+
+# 라스트 인덱스
+fruits_list = fruits.split(",")
+print(fruits_list)  # ['딸기', '거봉', '키위', '사쿠란보']
+
+# 거봉만 출력하기
+# 출력하고자 하는 요소의 인덱스를 대괄호로 감싸서 호출
+print(fruits_list[1])  # 거봉
+print(fruits_list[3])  # 사쿠란보
+print(fruits_list[-1])  # 사쿠란보
+
+# split 횟수 제한
+num = "010-1234-1234"
+# ["010", "1234-1234"]
+print(num.split("-", 1))  # ['010', '1234-1234']
+
+print("=== 실습3 ===")
+a = "a,b,c,d"
+print(a.split(","))
+
+# ======================
+print("=== join() ===")
+# 리스트를 하나의 문자열로 합침
+# "구분자".join(리스트)
+# 모든 요소가 합쳐져서 하나의 문자열로 반환
+
+fruits_list = ["딸기,거봉,키위,사쿠란보"]
+
+"-".join(fruits_list)  # "딸기-거봉-키위-사쿠란보"
+",".join(fruits_list)  # "딸기,거봉,키위,사쿠란보"
+", ".join(fruits_list)  # "딸기, 거봉, 키위, 사쿠란보"
+
+date = "2025", "01", "15"
+print("-".join(date))
+
+# 실습. pyThon 출력하기
+print("=== 실습. pyThon 출력하기 ===")
+
+word = "python"
+
+# 방법 1. strip + capitalize
+print(word[:2] + word.strip("py").capitalize())
+
+# 방법2. replace 사용
+print(word.replace("t", "T"))  # pyThon
+
+# 방법3. 슬라이싱 + T만 upper 사용
+print(word[:2] + word[2].upper() + word[3:])
+
+# 방법 4. 인덱싱으로 글자 하나씩 연결
+print(word[0] + word[1] + word[3] + word[3].upper() + word[4] + word[5])
+
+# 방법 5. 인덱싱 + strip + title
+print(word[:2] + word.strip("py").title())
+
+# 방법 6. split + join
+print(word.split("t"))  # ["py", "hon"]
+print("T".join(word.split("t")))  # pyThon
+print(word[2].upper().join(word.split("t")))  # pyThon
+print((word[2].upper()).join(word.split("t")))  # pyThon
+
+# =====================
+print("=== print 함수의 sep, end ===")
+
+print("2026", "07", "27")  # 2026 07 27 (기본적으로는 공백 1칸)
+
+# sep 속성을 사용하면 구분을 공백이 아닌 특정 문자열로 가능
+print("2026", "07", "27", sep="사랑해")  # 2026사랑해07사랑해27
+# 공백 대신 sep 속성에 전달한 문자열이 삽입되어 이어짐
+
+print("안녕", "하세")  # 안녕 하세
+print("안녕", "하세", end="요\n")  # 안녕 하세요
+# end 속성 사용시 출력문 마지막에 해당 문자열이 붙어 삽입
+
+# print("안녕", "하세", "ㅎㅎ" e nd = "요", "ㅎㅎ") # end 속성 뒤에 또 인자
+
+# print 함수 + 사용 시 sep과 end
+print("안녕", "하세", end="요" + "이렇게?!")  # 정상 동작 (사용자제)
+
+# 기본적으로 print문에는 sep으로 공백 한 칸,
+# end로 \n(줄바꿈)이 적용되어 있음
+# 근데, 개발자가 각 속성을 직접 부여할 경우
+# 기본값이 아닌 전달받은 속성값을 사용
+print("이런식으로 쓰죠", "근데 안보이는 기본 값이 있어요", sep=" ", end="\n")
+
+
+date = "2025/01/15"
+parts = date.split("/")
+print("-".join(parts))
+
+raw = "1, NORMAL, 25.3"
+parts = raw.split(",")
+status = parts[1].strip().lower()
+print(status)
