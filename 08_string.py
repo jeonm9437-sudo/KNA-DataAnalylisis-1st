@@ -683,10 +683,3 @@ sen = parts[1].strip()
 status = parts[2].strip().lower()
 value = float(parts[3].strip())
 print(f"[센서 {sen}] 상태 {status}, 측정값 {value:.2f}")
-
-# ==================
-temps = [25, 26, 24, 28, 27]
-print(temps)
-
-machines = ["펌프", "모터", "압축기"]
-print(machines)
