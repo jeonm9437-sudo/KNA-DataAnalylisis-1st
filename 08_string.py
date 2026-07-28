@@ -266,15 +266,15 @@ print("=== count() ===")
 
 # 문자열에서 특정 문자열의 갯수 세기
 
-str = "a, b, c, d, e,a, a"
+str1 = "a, b, c, d, e,a, a"
 
 # a의 갯수 세기
-print(str.count("a"))  # 3
+print(str1.count("a"))  # 3
 
 # ,의 갯수 세기
-print(str.count(","))  # 6
+print(str1.count(","))  # 6
 
-print(str.count(", "))  # 5 # count로 찾는 문자열와 완전히 동일해야 갯수를 셈
+print(str1.count(", "))  # 5 # count로 찾는 문자열와 완전히 동일해야 갯수를 셈
 
 # =========================
 print("=== startswith() ===")
@@ -485,7 +485,7 @@ print(str8.strip("abcd "))  # "이렇게?"
 print(str8.strip("bc"))  # "aaab 이렇게? cd"
 print(str8.strip("ab"))  # " 이렇게? cd"
 
-# GPT한테 물어볼때
+# GPT한테 질문하는 법
 # 지금 출력 결과는 " 이렇게? " 이렇게 나오고 있어
 # 내가 생각했을 때 ==처럼 정확하게 "abcd" 순서가 아니면
 # strip이 안될 줄 알았는데 실행 결과를 보니 순서랑 상관업이
@@ -502,9 +502,8 @@ print("=== replace() ===")
 # 제거할 때는 인자의 두 번째를 ""(빈문자열)로 작성
 print("정 상 가 동".replace(" ", ""))  # 정상가동 (중간 공백 제거)
 print("    정    상 가 동".replace(" ", ""))  # 정상가동 (모든 공백 제거)
-print(
-    "    정    상 가 동".replace("  ", "")
-)  # 정상 가 동 (공백이 2칸 붙어있는 경우만 제거)
+print("    정    상 가 동".replace("  ", ""))
+# 정상 가 동 (공백이 2칸 붙어있는 경우만 제거)
 
 # 글자 치환
 print("고장".replace("고장", "fault"))  # fault
@@ -569,6 +568,8 @@ fruits_list = ["딸기,거봉,키위,사쿠란보"]
 ",".join(fruits_list)  # "딸기,거봉,키위,사쿠란보"
 ", ".join(fruits_list)  # "딸기, 거봉, 키위, 사쿠란보"
 
+# fruits_list.join(",")  # 이렇게도 가능
+
 date = "2025", "01", "15"
 print("-".join(date))
 
@@ -622,6 +623,7 @@ print("안녕", "하세", end="요" + "이렇게?!")  # 정상 동작 (사용자
 # 기본값이 아닌 전달받은 속성값을 사용
 print("이런식으로 쓰죠", "근데 안보이는 기본 값이 있어요", sep=" ", end="\n")
 
+print("=== 실습 ===")
 
 date = "2025/01/15"
 parts = date.split("/")
@@ -631,3 +633,60 @@ raw = "1, NORMAL, 25.3"
 parts = raw.split(",")
 status = parts[1].strip().lower()
 print(status)
+
+# ===========================
+print("=== f-string ===")
+
+
+name = "PUMP_A"
+temp = 36
+
+# 출력 결과 : 설비 PUMP_A, 온도 36도
+# 기존 방식
+print("설비 " + name + ", 온도 " + str(temp) + "도")
+
+
+# f-string
+print(f"설비 {name}, 온도 {temp}도")
+# 따옴표 밖에 f 작성하기
+# 변수명은 꼭 {중괄호}에 감싸기
+
+# f-string 연산
+hour = 8
+
+# 우리는 하루에 8시간 수업을 듣고, 이는 480분입니다.
+print(f"우리는 하루에 {hour}시간 수업을 듣고, 이는 {hour * 60}분입니다.")
+
+a = 55
+b = 64
+c = 80
+print(f"평균 {(a + b + c) / 3}")
+
+# ================
+print("=== f-string 소수점 정리 ===")
+
+num999 = 87.456
+
+print(f"{num999:.1f}")
+print(f"{num999:.2f}")
+
+value = 25.34567
+print(f"측정값 {value}")
+print(f"측정값 {value:.2f}")
+print(f"측정값 {value:.1f}")
+
+print("=== 실습4 ===")
+
+raw = " 5, sensor_2 , WARNING , 0.78912"
+parts = raw.strip().split(",")
+sen = parts[1].strip()
+status = parts[2].strip().lower()
+value = float(parts[3].strip())
+print(f"[센서 {sen}] 상태 {status}, 측정값 {value:.2f}")
+
+# ==================
+temps = [25, 26, 24, 28, 27]
+print(temps)
+
+machines = ["펌프", "모터", "압축기"]
+print(machines)
