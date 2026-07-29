@@ -109,3 +109,66 @@ print(f"{a:.1f}, {a:.2f}")
 # 꺼내기 - 인덱싱, 슬라이싱, split
 # 확인, 다듬기 - len, in, find / strip, lower, replace, join
 # 텍스트 정리 : 공백 제거 -> 통일,치환 -> 나누기 -> 정리 -> 합치기
+
+rate = 87.456
+print(f"{rate:.1f}")
+print(f"{rate:.2f}")
+
+print("=== 실습 4 ===")
+raw = " 5, sensor_2, WARNING, 0.78912"
+parts = raw.strip().split(",")
+sid = parats[1].strip()
+status = float(parts[3].strip())
+value = float(parts[3].strip())
+print(f"[센서 {sid} 상태 {status}, 측정값 {value:.2f}]")
+
+# 리스트 만들기와 출력
+# 숫자 리스트
+temps = [25, 26, 24, 28, 27]
+print(temps)
+
+# 글자 리스트
+machines = ["펌프", "모터", "압축기"]
+print(machines)
+
+# 리스트는 담는 값의 종류 안가림
+# 숫자와 글자, 참거짓 값을 한 리스트에 섞어 담기 가능
+temps = [25, 26, 24, 28, 27]
+print(len(temps))
+results = []
+print(len(results))
+
+print("=== 실습 1 ===")
+temps = [25, 26, 24, 27, 26]
+print(temps)
+print(len(temps))
+empty = []
+print(len(empty))
+
+# 인덱스[] - 순서로 값 찾기
+# 인덱스는 첫 번째 값이
+
+
+print("===복습===")
+for i in range(5, 0, -1):
+    print(i)
+
+n = int(input("몇 번 반복할까요? "))
+for i in range(n):
+    print("반복 중...")
+
+for i in range(3):
+    print("현재 i:", i)
+
+
+for i in range(3):
+    print("반복")
+print("끝")
+
+n = int(input("끝 숫자 N을 입력하세요: "))
+for i in range(1, n + 1):
+    print(i)
+for i in range(2, n + 1, 2):
+    print(i)
+for i in range(n, 0, -1):
+    print(i)
