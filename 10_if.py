@@ -137,3 +137,81 @@ elif user_a >= 37.8:
 else:
     print("당신은 정상 체온입니다.")
 print("체온 확인 완료")
+
+# elif의 순서
+# 
+score = 100
+
+
+# 100이기 때문에 우수가 출력되어야 하지만
+# 코드의 순서가 적합하지 않아서 "미흡"이 출력됨
+if score >= 50:
+    print("미흡")
+elif score >= 90:
+    print("우수")
+elif score >= 70:
+    print("보통")
+else:
+    print("비상")
+
+# 정상 출력
+if score >= 70:
+    print("보통")
+elif score >= 90:
+    print("우수")
+elif score >= 50:
+    print("미흡")
+else:
+    print("비상")
+
+# not 연산자
+# 괄호로 감싸서 사용
+if not(3 == 5):
+    print("출력됩니다")
+# 3과 5는 같지 않으니 False가 되지만 
+# 앞에 not이 있어서 False를 True로 뒤집어 if가 인식
+
+# if문은 줄바꿈을 하지 않아도 :을 기준으로 동작 자체는 가능
+# 하지만 줄바꿈해서 가독성을 높이길 권장
+# 탭은 아직 위의 코드가 끝나지 않았고 한 줄이라는 것을 명시
+
+
+# score = 82
+# if score >= 90: print("우수")
+#elif score >= 70: print("미흡")
+# elif: print("미흡")
+
+print("=== 실습 2 ===")
+
+temp = int(input("측정 온도를 입력 하세요"))
+if temp > 80:
+    print("위험")
+elif temp > 60:
+    print("주의")
+else:
+    print("정상")
+
+# ===== 실습 3
+
+correct_id = "admin"
+correct_pw = 1234
+user_id = input("아이디: ")
+user_pw = input("비밀번호")
+if user_id ==correct_id and user_pw == correct_pw:
+    print("로그인 성공")
+else:
+    print("로그인 실패")
+
+# =============실습5
+temp = int(input("온도: "))
+vib = float(input("진동: "))
+current = int(input("전류: "))
+if temp > 80 or vib > 4.0:
+    print("위험: 즉시 정지")
+else:
+    if current > 60 and temp > 70:
+        print("주의: 부하 점검")
+    elif vib > 2.5:
+        print("주의: 진동 관찰")
+    else:
+        print("정상")
