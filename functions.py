@@ -172,3 +172,58 @@ for i in range(2, n + 1, 2):
     print(i)
 for i in range(n, 0, -1):
     print(i)
+
+print("===")
+# if문의 기본 구조
+temp = 85
+if temp > 80:
+    print("온도 주의")
+print("측정 종료")
+
+# 콜론은 여기부터 이 조건에 속하는 코드 시작이라는 신호
+# if, elif, else 모두 콜론으로 끝나는 공통 규칙
+# 그 아래 들여 쓴 코드 한 덩어리가 코드 블록
+# 조건 판단 설계 3단계(상황파악 -> 조건 정의 -> 결과 지정)
+
+print("== 실습 1 ==")
+age = int(input("나이를 입력하세요: "))
+if age >= 19:
+    print("성인입니다")
+else:
+    print("미성년자입니다")
+
+# else로 나머지 경우 처리
+# else는 if 조건이 거짓일 때 실행할 코드를 담음
+# else는 조건식을 따로 쓰지 않는다
+# if 와 else 중 항상 하나만 실행
+
+# 예)
+score = 75
+if score >= 60:
+    print("합격")
+else:
+    print("불합격")
+
+# elif는 갈림길이 셋 이상일 때 중간 조건을 추가
+# 앞 조건이 거짓일 때만 elif 조건을 검사
+
+# if - elif - else 전체구조
+score = 82
+if score >= 90:
+    print("우수")
+elif score >= 70:
+    print("보통")
+else:
+    print("미흡")
+
+# 논리 연산자 not
+# not은 참을 거짓, 거짓을 참으로 뒤집음
+# "~가 아닐 때"를 표현
+# and, or 섞을 때는 괄호로 범위를 분명히
+
+temp = 45
+if temp >= 20 and temp <= 60:
+    print("정상 범위")
+if 20 <= temp <= 60:
+    print("정상 범위")
+    
