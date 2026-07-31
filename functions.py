@@ -226,4 +226,46 @@ if temp >= 20 and temp <= 60:
     print("정상 범위")
 if 20 <= temp <= 60:
     print("정상 범위")
-    
+
+print("=== 실습 2 ===")
+temp = int(input("측정 온도를 입력하세요: "))
+if temp > 80:
+    print("위험")
+elif temp > 60:
+    print("주의")
+else:
+    print("정상")
+
+correct_id = "admin"
+correct_pw = "1234"
+user_id = input("아이디: ")
+user_pw = input("비밀번호: ")
+if user_id == correct_id and user_pw == correct_pw:
+    print("로그인 성공")
+else:
+    print("로그인 실패")
+
+# if - 조건 안의 조건
+temp = 78
+vib = 3.5
+if temp > 60:
+    if vib > 3.0:
+        print("고온, 고진동 -> 위험")
+    else:
+        print("고온 -> 주의")
+else:
+    print("정상")
+
+print("=== 실습 5 ===")
+temp = int(input("온도: "))
+vib = int(input("진동: "))
+current = int(input("전류: "))
+if temp > 80 or vib > 4.0:
+    print("위험 : 즉시 정지")
+else:
+    if current > 60 and temp >70:
+        print("주의 : 부하 점검")
+    elif vib >2.5:
+        print("주의 : 진동 관찰")
+    else:
+        print("정상")
