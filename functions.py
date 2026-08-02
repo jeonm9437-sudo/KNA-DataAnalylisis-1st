@@ -263,9 +263,49 @@ current = int(input("전류: "))
 if temp > 80 or vib > 4.0:
     print("위험 : 즉시 정지")
 else:
-    if current > 60 and temp >70:
+    if current > 60 and temp > 70:
         print("주의 : 부하 점검")
-    elif vib >2.5:
+    elif vib > 2.5:
         print("주의 : 진동 관찰")
     else:
         print("정상")
+
+print("=== 27study ===")
+print("=== 과제 5 ===")
+temps = [25, 26, 24, 28, 27]
+fahrenheit = []
+for t in temps:
+    fahrenheit.append(round(t * 1.8 + 32, 1))
+print(fahrenheit)
+
+print("=== 과제 6 ===")
+temps = [25, 26, 27, 28, 27, 32, 33, 34, 35, 33]
+
+total = 0
+hot_temps = []
+
+for t in temps:
+    total += t
+
+    if t > 30:
+        hot_temps.append(t)
+
+average = total / len(temps)
+hot_average = sum(hot_temps) / len(hot_temps)
+
+print("전체 평균:", average)
+print("고온 개수:", len(hot_temps))
+print("고온 평균:", hot_average)
+
+
+line_a = {"S01", "S02", "S03", "S05"}
+line_b = {"S03", "S04", "S05"}
+print(line_a.union(line_b))
+print(line_a.intersection(line_b))
+print(line_a.difference(line_b))
+print(line_b.difference(line_a))
+
+yesterday = {"S01", "S02", "S03"}
+today = {"S02", "S03", "S05"}
+print(today.difference(yesterday))
+print(today.intersection(yesterday))
