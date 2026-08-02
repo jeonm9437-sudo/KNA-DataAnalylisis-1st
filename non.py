@@ -113,6 +113,48 @@ print("=== 7/19일 복습 ===")
 # age = 27
 # country = "포항"
 # print(name), print(age), print(country)
-wideth, height = 4, 3
-print(wideth)
-print(height)
+# wideth, height = 4, 3
+# print(wideth)
+# print(height)
+
+
+# empty = ""
+# zero = 0
+# print(type(empty))
+# print(type(zero))
+# count = 5
+# temp = 45
+# name = "센서A"
+# is_ok = True
+# print(count, temp, name, is_ok)
+# print(type(count))
+# print(type(temp))
+# print(type(name))
+# print(type(is_ok))
+# print(type(100))  # <class "int">
+# print(type(100.0))  # <class "float">
+# print(type("100"))  # <class "str">
+# print(5 + 5)
+# print("5" + "5")
+# print("5" + "7")
+# print(3 > 2)
+# print(5 == 5)
+# print(type(3 > 2))
+# count = 5
+# print(count, type(count))
+# count = 5.0
+# print(count, type(count))
+# count = "5"
+# print(count, type(count))
+# device_temp = 89
+# check_count = 20
+# device_name = "펌프"
+# is_normal = True
+# print(device_temp)
+# print(check_count)
+# print(device_name)
+# print(is_normal)
+# print(7 // 2)
+result = 3 + 5
+print(result)
+avg = (80 + 90) / 2

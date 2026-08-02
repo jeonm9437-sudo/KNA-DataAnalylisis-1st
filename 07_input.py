@@ -135,13 +135,3 @@ print("현재 입력받은 진동값은 " + a)
 # e = int("str")  # Error, float도 동일
 # f = int(False)  # Error, float도 동일
 # f = int(False) # Error, f가 소문자면 "변수"라고 인지를 하기 때문에 false라는 변수가 없어서 불가
-
-temp = int(input("온도: "))
-print("80 초과?", temp > 80)
-print("0 이상?", temp >= 0)
-
-print("=== 실습 ===")
-x = int(input("x는?: "))
-y = int(input("y는?: "))
-z = int(input("z는?": "))
-avge(x + y + z / 3)
